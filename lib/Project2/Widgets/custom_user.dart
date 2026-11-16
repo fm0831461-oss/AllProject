@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project1/Project2/DataModels/data_model.dart';
+import 'package:project1/Project2/Widgets/details.dart';
 
 class CustomUser extends StatelessWidget {
   final UserModel model;
@@ -7,13 +8,19 @@ class CustomUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 10,
-      shadowColor: Colors.black87,
-      child: ListTile(
-        leading: Image.network(model.imgeUrl),
-        title: Text(model.name),
-        subtitle: Text(model.email),
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Details(model: model)),
+      ),
+      child: Card(
+        elevation: 10,
+        shadowColor: Colors.black87,
+        child: ListTile(
+          leading: Image.network(model.imgeUrl),
+          title: Text(model.name),
+          subtitle: Text(model.email),
+        ),
       ),
     );
   }

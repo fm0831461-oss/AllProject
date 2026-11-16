@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:project1/Project1/Providers/prayers_provider.dart';
-import 'package:project1/Project1/Screens/home.dart';
 import 'package:project1/Project2/Providor/user_provider.dart';
 import 'package:project1/Project2/Screens/home_screen.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +23,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-        // home: HomeScreen(),
         home: HomeScreen(),
       ),
     );
