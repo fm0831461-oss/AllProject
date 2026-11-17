@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project1/Project2/DataModels/data_model.dart';
-import 'package:project1/Project2/Widgets/details.dart';
+import 'package:project1/Project2/Screens/details.dart';
 
 class CustomUser extends StatelessWidget {
   final UserModel model;
