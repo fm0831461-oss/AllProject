@@ -1,19 +1,17 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:project1/NewApp/Models/article_model.dart';
 import 'package:project1/NewApp/Services/articles_services.dart';
 
-class ArticleProvider extends ChangeNotifier {
-  Articles? dataModel;
-
+class ArticlesProvider extends ChangeNotifier {
+  Article? article;
   Future<void> getNews() async {
-    dataModel = await ArticlesService.fetchData();
+    article = await ArticlesServices.getData();
     notifyListeners();
   }
 
-  Future<void> searchArticles({required String query}) async {
-    if (query.isEmpty) return;
-
-    dataModel = await ArticlesService.searchNews(query: query);
+  Future<void> search({required String news}) async {
+    if (news.isEmpty) return;
+    article = await ArticlesServices.search(news: news);
     notifyListeners();
   }
 }

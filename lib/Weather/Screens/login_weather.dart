@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project1/Weather/Providers/auth_provider.dart';
-import 'package:project1/Weather/Screens/details_weather.dart';
+import 'package:project1/Weather/Screens/weather_app.dart';
 import 'package:project1/Weather/Screens/sign_weather.dart';
 import 'package:project1/Weather/Widgets/custom_text_form.dart';
 import 'package:provider/provider.dart';
@@ -48,7 +48,7 @@ class LoginWeather extends StatelessWidget {
                 if (sucsses) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => DetailsWeather()),
+                    MaterialPageRoute(builder: (context) => WeatherApp()),
                   );
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(

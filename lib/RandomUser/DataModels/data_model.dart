@@ -1,36 +1,32 @@
-class UserModel {
+class DataModel {
   final String name;
-  final String phone;
   final String email;
-  final String address;
-  final int age;
   final String imgeUrl;
-  new({
+  final String address;
+
+  DataModel({
     required this.name,
-    required this.phone,
     required this.email,
-    required this.address,
-    required this.age,
     required this.imgeUrl,
+    required this.address,
   });
 }
 
-class Users {
-  final List<UserModel> users;
-  Users({required this.users});
-  factory Users.fromJson(Map<String, dynamic> json) {
-    final List<UserModel> tempList = json["results"]
-        .map<UserModel>(
-          (user) => UserModel(
-            name: "${user["name"]["first"]} ${user["name"]["last"]}",
-            phone: user["phone"],
-            email: user["email"],
-            address: user["location"]["street"]["name"],
-            age: user["dob"]["age"],
-            imgeUrl: user["picture"]["large"],
+class user {
+  final List<DataModel> users;
+
+  user({required this.users});
+  factory user.fromJson(Map<String, dynamic> json) {
+    final tempList = json["results"]
+        .map<DataModel>(
+          (item) => DataModel(
+            name: "${item["name"]["first"]} ${item["name"]["last"]}",
+            email: item["email"],
+            imgeUrl: item["picture"]["large"],
+            address: item["location"]["street"]["name"],
           ),
         )
         .toList();
-    return Users(users: tempList);
+    return user(users: tempList);
   }
 }
